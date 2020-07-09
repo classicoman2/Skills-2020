@@ -25,3 +25,5 @@ Para acceder a phpmyadmin para la base de datos vamos al enlace [http://localhos
 >> Si el contenedor es borrado habrá que modificar de nuevo este fichero ya que ningún volumen apunta hacia él.
 
 Para detener el contenedor ejecutamos `docker stop xampp` y para volverlo a encender `docker start xampp`.
+
+En la carpeta pages es donde deben ir todos los recursos de la web (html, imagenes, css, javascript, php, etc...)
