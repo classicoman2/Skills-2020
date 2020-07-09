@@ -5,3 +5,4 @@
 - [Classroom](https://classroom.google.com/c/MTM3MjkyNzM0MDg1) amb apunts i material de consulta per a la Preparació
 - [Github Project](https://github.com/classicoman2/Skills-2020/projects/1) amb tasques pendents
 
+[Uso del docker](docker.md)
