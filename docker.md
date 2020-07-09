@@ -1,5 +1,17 @@
 # Hacer uso del dockerfile
 
+## Crear la imagen docker
+
+Para crear la imagen docker de xampp debemos ejecutar este comando estando en el mismo directorio que el fichero Dockerfile:
+
+```bash
+docker build -t xampp .
+```
+
+> Es importante añadir el punto al final
+
+## Iniciar el contenedor
+
 Para iniciar el contenedor xampp la primera vez debemos ejecutar el script [docker-xampp.sh](docker-xampp.sh), para ello seguimos estos pasos:
 
 ```bash
