@@ -1,8 +1,8 @@
 FROM ubuntu:latest
 
-ADD installer.sh /home/installer.sh
+ADD scripts/installer.sh /home/installer.sh
 
-ADD start.sh /home/start.sh
+ADD scripts/start.sh /home/start.sh
 
 RUN chmod +x /home/installer.sh /home/start.sh
 
