@@ -1,19 +1,15 @@
 FROM ubuntu:latest
 
-RUN apt update
+ADD installer.sh /home/installer.sh
 
-RUN apt install -y curl net-tools
+ADD start.sh /home/start.sh
 
-RUN curl -Lo /home/xampp.run https://www.apachefriends.org/xampp-files/7.4.7/xampp-linux-x64-7.4.7-0-installer.run
-
-RUN chmod +x /home/xampp.run
-
-RUN /home/xampp.run
-
-WORKDIR /opt/lampp
+RUN chmod +x /home/installer.sh /home/start.sh
 
 EXPOSE 80
 
 EXPOSE 3306
 
-ENTRYPOINT /opt/lampp/xampp start && bash
+WORKDIR /opt/lampp
+
+ENTRYPOINT /home/start.sh
