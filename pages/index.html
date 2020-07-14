@@ -2,11 +2,69 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Documento</title>
+    <title>Formulario</title>
+    <link rel="stylesheet" href="estilos/index.css" type="text/css" />
 </head>
 
 <body>
-    <h1>Hola mundo</h1>
+    <div class="formulario">
+        <form action="">
+            <h2>Formulario</h2>
+            <div id=nombres>
+                <div class="input">
+                    <label for="dniPersona">DNI:</label>
+                    <input type="text" name="dniPersona" id="dniPersona">
+                </div>
+                <div class="input">
+                    <label for="nombrePersona">Nombre:</label>
+                    <input type="text" name="nombrePersona" id="nombrePersona">
+                </div>
+                <br />
+                <div class="input">
+                    <label for="apellidoUnoPersona">Primer apellido:</label>
+                    <input type="text" name="apellidoUnoPersona" id="apellidoUnoPersona">
+                </div>
+                <div class="input">
+                    <label for="apellidoDosPersona">Segundo apellido:</label>
+                    <input type="text" name="apellidoDosPersona" id="apellidoDosPersona">
+                </div>
+            </div>
+            <div id="datos">
+                <div class="input">
+                    <label for="fechaPersona">Fecha de nacimiento:</label>
+                    <input type="date" name="fechaPersona" id="fechaPersona">
+                </div>
+                <div class="input">
+                    <label for="vivoPersona">Vivo o muerto:</label>
+                    <select name="vivoPersona" id="vivoPersona">
+                        <option value="true">Vivo</option>
+                        <option value="false">Muerto</option>
+                    </select>
+                </div>
+                <br />
+                <h3 class="tituloInline">Género:</h3>
+                <div class="input">
+                    <label for="hombrePersona">Hombre:</label>
+                    <input type="radio" name="generoPersona" id="hombrePersona" value="H">
+                </div>
+                <div class="input">
+                    <label for="mujerPersona">Mujer:</label>
+                    <input type="radio" name="generoPersona" id="mujerPersona" value="F">
+                </div>
+            </div>
+            <div id="descripcion">
+                <label for="descripcionPersona">
+                    <h3 class="tituloInline">Descripción:</h3>
+                </label>
+                <br />
+                <textarea name="descripcionPersona" id="descripcionPersona" cols="30" rows="3"></textarea>
+            </div>
+            <div class="submits">
+            <input type="reset" value="Vaciar formulario"/>
+            <input type="submit" value="Registrar persona">
+        </div>
+        </form>
+    </div>
 </body>
 
 </html>
