@@ -10,7 +10,8 @@ create table personas (num_persona int auto_increment primary key,
                        fecha_de_nac date,
                        genero character check (genero = "H" or genero = "F"),
                        vivo boolean default true,
-                       descripcion text);
+                       descripcion text,
+                       UNIQUE (dni));
 
 /*Datos de prueba
 
