@@ -63,7 +63,13 @@
                                     echo $fila["fecha_de_nac"];
                                 echo "</td>";
                                 echo "<td>";
-                                    echo $fila["genero"];
+                                    if ($fila["genero"] == "H") {
+                                        echo "Hombre: " . $fila["genero"];
+
+                                    } else {
+                                        echo "Mujer: " . $fila["genero"];
+                                    }
+                                    
                                 echo "</td>";
                                 echo "<td>";
                                     if ($fila["vivo"] == 1) {
