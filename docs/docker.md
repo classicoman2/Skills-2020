@@ -16,7 +16,7 @@ Para iniciar el contenedor xampp la primera vez debemos ejecutar el script [dock
 
 ```bash
 chmod +x docker-xampp.sh
-./docker-xampp.sh
+./scripts/docker-xampp.sh
 ```
 
 > Es normal que tarde en instalarse xampp, para ver el estado de la instalación ejecutamos `docker logs -f xampp` y veremos los logs que produce el contenedor, para salir ctrl+C.
