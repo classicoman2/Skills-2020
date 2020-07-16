@@ -65,7 +65,6 @@
                                 echo "<td>";
                                     if ($fila["genero"] == "H") {
                                         echo "Hombre: " . $fila["genero"];
-
                                     } else {
                                         echo "Mujer: " . $fila["genero"];
                                     }
