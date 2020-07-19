@@ -5,7 +5,7 @@ p {
 }
 </style>
 <?php
-    echo "<h1>Estos son los valores que has introducido:</h1>";
+    echo "<h1>Se añadirá la siguiente persona:</h1>";
     
     echo "<p>DNI:</p>";
     echo $_POST["dniPersona"];
@@ -31,4 +31,19 @@ p {
     }
     echo "<p>Descripción::</p>";
     echo $_POST["descripcionPersona"];
+
+    $conexion = new mysqli("192.168.1.20", "skills", "1234", "skills");
+    if ($conexion->connect_error) { die("Ha habido un error en la conexión"); }
+
+    $query = "insert into personas (dni, nombre, apellido_1, apellido_2, fecha_de_nac, genero, vivo, descripcion)
+    values ('" . $_POST["dniPersona"] . "','" . $_POST["nombrePersona"] . "','" . $_POST["apellidoUnoPersona"] .
+    "','" . $_POST["apellidoDosPersona"] . "','" . $_POST["fechaPersona"] . "','" . $_POST["generoPersona"] .
+    "', " . $_POST["vivoPersona"] . ",'" . $_POST["descripcionPersona"] . "');";
+
+    if ($conexion->query($query) === TRUE) {echo "añadido";}
+    else {echo "<p>Error</p>";}
+    $conexion->close();
 ?>
+
+<br/>
+<a href="../index.html">Volver al formulario</a>
