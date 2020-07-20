@@ -40,7 +40,7 @@ p {
     "','" . $_POST["apellidoDosPersona"] . "','" . $_POST["fechaPersona"] . "','" . $_POST["generoPersona"] .
     "', " . $_POST["vivoPersona"] . ",'" . $_POST["descripcionPersona"] . "');";
 
-    if ($conexion->query($query) === TRUE) {echo "añadido";}
+    if ($conexion->query($query) === TRUE) {echo "<p>añadido</p>";}
     else {echo "<p>Error</p>";}
     $conexion->close();
 ?>
