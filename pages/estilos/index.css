@@ -37,7 +37,7 @@ input[type=submit], input[type=reset] {
     cursor: pointer;
 }
 
-input[type=submit], input[type=reset], button {
+input[type=submit], input[type=reset], button, input[type=button] {
     box-shadow: black 2px -2px;
     padding: 1%;
     border: 0px;
@@ -45,15 +45,17 @@ input[type=submit], input[type=reset], button {
     outline: none;
 }
 
-input[type=submit]:active, input[type=reset]:active, button:active {
+input[type=submit]:active, input[type=reset]:active, button:active, input[type=button]:active {
     box-shadow: black 0px 0px;
 }
 
-input[type=submit]:hover, input[type=reset]:hover, button:hover {
+input[type=submit]:hover, input[type=reset]:hover, button:hover, input[type=button]:hover {
     background-color: rgb(230, 230, 230);
+    cursor: pointer;
 }
 
 #botonPersonas {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
