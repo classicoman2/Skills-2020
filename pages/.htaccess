@@ -1,3 +1,9 @@
-ErrorDocument 404 /404.html
-
 Header set Access-Control-Allow-Origin "*"
+
+RewriteEngine on
+
+ErrorDocument 404 /pagina-no-encontrada
+
+RewriteRule ^inicio$ index.html
+RewriteRule ^personas$ personas.html
+RewriteRule ^pagina-no-encontrada$ 404.html
