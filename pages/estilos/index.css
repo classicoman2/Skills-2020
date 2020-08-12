@@ -2,60 +2,85 @@
     font-family: monospace;
 }
 
-.formulario {
-    background-color: rgb(202, 202, 202);
-    border-radius: 5%;
-    box-shadow: 10px 10px 15px black;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 5%;
+header {
+    margin: 2%;
     padding-left: 2%;
     padding-right: 2%;
-    padding-top: 1%;
-    padding-bottom: 1%;
 }
 
-.input {
-    display: inline-block;
-    margin: 2%;
+div.campos {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
 }
 
-#nombres, #datos, #descripcion {
-    text-align: center;
+table.campos {
+    border-collapse: collapse;
 }
 
-.tituloInline {
-    display: inline-block;
+table.campos thead tr {
+    background-color: rgb(140, 190, 247);
 }
 
-.submits {
-    margin: 5%;
-    text-align: center;
-}
-
-input[type=submit], input[type=reset] {
-    cursor: pointer;
-}
-
-input[type=submit], input[type=reset], button, input[type=button] {
-    box-shadow: black 2px -2px;
-    padding: 1%;
-    border: 0px;
+table.campos th {
     font-size: large;
-    outline: none;
+    padding: 1%;
 }
 
-input[type=submit]:active, input[type=reset]:active, button:active, input[type=button]:active {
-    box-shadow: black 0px 0px;
+table.campos thead tr {
+    border-top: 3px black dashed;
 }
 
-input[type=submit]:hover, input[type=reset]:hover, button:hover, input[type=button]:hover {
-    background-color: rgb(230, 230, 230);
+table.campos tr {
+    border-bottom: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #adadad;
+}
+
+table.campos td {
+    padding: 1%;
+    border:1px black solid;
+}
+
+/*
+#insertar {
+    padding: 0%;
+}
+
+#insertar input, #insertar select, #insertar textarea {
+    width: 100%;
+    margin: 0%;
+}
+*/
+
+#buscar input {
+    font-size: 15px;
+    padding: 10px;
+}
+
+#buscar button {
+    font-size: 15px;
+    padding: 10px;
+    border: 3px rgb(130, 248, 145) solid;
+    background-color: white;
+}
+
+#buscar button:hover {
+    background-color: rgb(130, 248, 145);
+    transition: 1s;
     cursor: pointer;
 }
 
-#botonPersonas {
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #d1d1d1;
 }
