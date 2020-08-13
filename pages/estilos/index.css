@@ -2,6 +2,10 @@
     font-family: monospace;
 }
 
+body {
+    background-color: #fffbd4;
+}
+
 header {
     margin: 2%;
     padding-left: 2%;
