@@ -20,6 +20,7 @@ div.campos {
 
 table.campos {
     border-collapse: collapse;
+    text-align: center;
 }
 
 table.campos thead tr {
@@ -49,6 +50,10 @@ tr:nth-child(odd) {
 
 table.campos td {
     padding: 1%;
+}
+
+.alinearIzquierda {
+    text-align: left;
 }
 
 /*
