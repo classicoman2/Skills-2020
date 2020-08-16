@@ -21,7 +21,7 @@ function llenarTabla(json) {
                         + "</td><td>" + persona.genero
                         + "</td><td>" + persona.vivo
                         + "</td><td>" + persona.descripcion
-                        + "</td><td><button><img src='img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
+                        + "</td><td><button><img src='/img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
         cuerpoTabla.innerHTML = fila.innerHTML + cuerpoTabla.innerHTML;
     }
 }
@@ -33,6 +33,7 @@ function getPersonas() {
 }
 
 function ponerPersonaEnTabla(persona) {
+    if (persona.encontrado == 0) { alert("No se ha encontrado ningún resultado"); return null; }
     vaciarTabla();
     let fila = document.createElement("tr");
     fila.innerHTML = "<td>" + persona.dni
@@ -43,7 +44,7 @@ function ponerPersonaEnTabla(persona) {
                     + "</td><td>" + persona.genero
                     + "</td><td>" + persona.vivo
                     + "</td><td>" + persona.descripcion
-                    + "</td><td><button><img src='img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
+                    + "</td><td><button><img src='/img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
     cuerpoTabla.innerHTML = fila.innerHTML + cuerpoTabla.innerHTML;
 }
 
