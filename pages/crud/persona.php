@@ -10,17 +10,28 @@ if (!isset($_GET["dni"]) || $_GET["dni"] == "") {
     die();
 }
 
-$persona = new stdClass();
+$conexion = new mysqli("192.168.1.20", "skills", "1234", "skills");
 
-$persona = new stdClass();
-$persona->dni = $_GET["dni"];
-$persona->nombre = "Jose Maria";
-$persona->apellido_1 = "Samos";
-$persona->apellido_2 = "Diago";
-$persona->fecha_de_nac = "26-11-2000";
-$persona->genero = "Hombre";
-$persona->vivo = "Sí";
-$persona->descripcion = "Yo mismo";
+if ($conexion->connect_error) { die(); }
+
+$query = "select dni, nombre, apellido_1, apellido_2, fecha_de_nac,
+genero, vivo, descripcion from personas where dni = '" . $_GET["dni"] . "';";
+
+$resultadoQuery = $conexion->query($query);
+
+$conexion->close();
+
+if ($resultadoQuery->num_rows == 0) { die("{\"encontrado\": 0}"); }
+
+$persona = $resultadoQuery->fetch_assoc();
+
+if ($persona["genero"] == "F") { $persona["genero"] = "Mujer"; }
+else { $persona["genero"] = "Hombre"; }
+
+if ($persona["vivo"] == 1) { $persona["vivo"] = "Sí"; }
+else { $persona["vivo"] = "No"; }
+
+$persona["encontrado"] = 1;
 
 echo json_encode($persona);
 
