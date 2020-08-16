@@ -16,6 +16,8 @@ genero, vivo, descripcion from personas order by apellido_1 asc";
 
 $resultadoQuery = $conexion->query($query);
 
+$conexion->close();
+
 $json->personas = array();
 
 if ($resultadoQuery->num_rows > 0) {
@@ -34,8 +36,6 @@ if ($resultadoQuery->num_rows > 0) {
         $json->personas[count($json->personas)] = $persona;
     }
 }
-
-$conexion->close();
 
 echo json_encode($json);
 
