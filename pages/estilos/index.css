@@ -56,16 +56,9 @@ table.campos td {
     text-align: left;
 }
 
-/*
-#insertar {
-    padding: 0%;
+textarea[name=descripcion] {
+    resize: vertical;
 }
-
-#insertar input, #insertar select, #insertar textarea {
-    width: 100%;
-    margin: 0%;
-}
-*/
 
 #buscar input {
     font-size: 15px;
