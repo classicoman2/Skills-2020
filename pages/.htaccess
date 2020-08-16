@@ -5,5 +5,6 @@ RewriteEngine on
 ErrorDocument 404 /pagina-no-encontrada
 
 RewriteRule ^inicio$ index.html
-RewriteRule ^personas$ personas.html
+RewriteRule ^crud/personas$ crud/personas.php
+RewriteRule ^crud/persona$ crud/persona.php
 RewriteRule ^pagina-no-encontrada$ 404.html
