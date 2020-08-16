@@ -36,8 +36,8 @@ table.campos thead tr {
     border-top: 3px black dashed;
 }
 
-table.campos tr {
-    border-bottom: 1px solid black;
+table.campos > tbody tr {
+    border-top: 1px solid black;
 }
 
 tr:nth-child(even) {
@@ -54,6 +54,11 @@ table.campos td {
 
 .alinearIzquierda {
     text-align: left;
+}
+
+tr#filaFormulario {
+    border-top: 5px black solid;
+    border-bottom: 1px black solid;
 }
 
 textarea[name=descripcion] {
