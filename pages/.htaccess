@@ -6,5 +6,5 @@ ErrorDocument 404 /pagina-no-encontrada
 
 RewriteRule ^inicio$ index.html
 RewriteRule ^crud/personas$ crud/personas.php
-RewriteRule ^crud/persona/(.*)$ crud/persona.php?dni=$1
+RewriteRule ^crud/persona/(\w*)$ crud/persona.php?dni=$1
 RewriteRule ^pagina-no-encontrada$ 404.html
