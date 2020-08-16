@@ -50,7 +50,7 @@ function ponerPersonaEnTabla(persona) {
 
 function buscarPersona(formulario) {
     let inputDni = formulario.querySelector("input[name=dni]");
-    fetch("/crud/persona?dni=" + inputDni.value, {method: "GET"})
+    fetch("/crud/persona/" + inputDni.value, {method: "GET"})
         .then(respuesta => respuesta.json())
         .then(json => ponerPersonaEnTabla(json));
     inputDni.value = "";
