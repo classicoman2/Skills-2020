@@ -14,35 +14,35 @@
 
     <section>
         <div class="campos">
-            <table class="campos">
-                <colgroup>
-                    <col span="1" style="width: 10%;">
-                    <col span="1" style="width: 10%;">
-                    <col span="1" style="width: 10%;">
-                    <col span="1" style="width: 10%;">
-                    <col span="1" style="width: 10%;">
-                    <col span="1" style="width: 10%;">
-                    <col span="1" style="width: 5%;">
-                    <col span="1" style="width: 30%;">
-                    <col span="1" style="width: 5%;">
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th>DNI</th>
-                        <th>Nombre</th>
-                        <th>Primer apellido</th>
-                        <th>Segundo apellido</th>
-                        <th>Fecha de nacimiento</th>
-                        <th>Género</th>
-                        <th>Vivo</th>
-                        <th>Descripción</th>
-                        <th><button><img src="/img/recargar.png" alt="recargar" height="100%" width="100%"
-                                    onclick="getPersonas();"></button></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="filaFormulario">
-                        <form id="insertar" action="" method="POST">
+            <form id="insertar" action="" onsubmit="return false;">
+                <table class="campos">
+                    <colgroup>
+                        <col span="1" style="width: 10%;">
+                        <col span="1" style="width: 10%;">
+                        <col span="1" style="width: 10%;">
+                        <col span="1" style="width: 10%;">
+                        <col span="1" style="width: 10%;">
+                        <col span="1" style="width: 10%;">
+                        <col span="1" style="width: 5%;">
+                        <col span="1" style="width: 30%;">
+                        <col span="1" style="width: 5%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Primer apellido</th>
+                            <th>Segundo apellido</th>
+                            <th>Fecha de nacimiento</th>
+                            <th>Género</th>
+                            <th>Vivo</th>
+                            <th>Descripción</th>
+                            <th><button onclick="getPersonas();"><img src="/img/recargar.png" alt="recargar"
+                                        height="100%" width="100%" /></button></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="filaFormulario">
                             <td>
                                 <input type="text" placeholder="DNI" name="dni" size="10" />
                             </td>
@@ -60,8 +60,8 @@
                             </td>
                             <td>
                                 <select name="genero">
-                                    <option value="">Hombre</option>
-                                    <option value="">Mujer</option>
+                                    <option value="H">Hombre</option>
+                                    <option value="F">Mujer</option>
                                 </select>
                             </td>
                             <td>
@@ -71,13 +71,13 @@
                                 <textarea name="descripcion" cols="30" rows="3" placeholder="Texto"></textarea>
                             </td>
                             <td>
-                                <button type="submit"><img src="/img/anadir.png" alt="Añadir" width="100%"
-                                        height="100%"></button>
+                                <button type="button"><img src="/img/anadir.png" alt="Añadir" width="100%" height="100%"
+                                        onclick="anadirPersona();"></button>
                             </td>
-                        </form>
-                    </tr>
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
         <div class="campos">
             <form id="buscar" action="" method="GET">
