@@ -12,6 +12,32 @@ header {
     padding-right: 2%;
 }
 
+div#tapar {
+    background-color: rgba(0, 0, 0, 0.432);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+div#editarFormulario {
+    position: absolute;
+    background-color: whitesmoke;
+    width: 33%;
+    min-height: 150px;
+    border-radius: 20px;
+    text-align: center;
+    left: 30%;
+    top: 20%;
+    z-index: 2;
+}
+
+input[readonly] {
+    cursor: not-allowed;
+}
+
 div.campos {
     margin-left: 2%;
     margin-right: 2%;

@@ -13,8 +13,26 @@
     </header>
 
     <section>
+        <div id="tapar"></div>
+        <div class="campos" id="editarFormulario">
+            <h1>Actualizar persona</h1>
+            <form action="">
+                    <input type="text" placeholder="DNI" name="dni" size="10" readonly /><br/>
+                    <input type="text" placeholder="Nombre" name="nombre" size="12" /><br/>
+                    <input type="text" placeholder="Primer apellido" name="papellido" size="12" /><br/>
+                    <input type="text" placeholder="Segundo apellido" name="sapellido" size="12" /><br/>
+                    <input type="date" name="fechanac" />
+                    <select name="genero">
+                        <option value="H">Hombre</option>
+                        <option value="F">Mujer</option>
+                    </select><br/>
+                    <input type="checkbox" name="vivo" checked /><br/>
+                    <textarea name="descripcion" cols="30" rows="3" placeholder="Texto"></textarea><br/>
+                    <input type="submit" value="Actualizar">
+            </form>
+        </div>
         <div class="campos">
-            <form id="insertar" action="" onsubmit="return false;">
+            <form id="insertar" onsubmit="return false;">
                 <table class="campos">
                     <colgroup>
                         <col span="1" style="width: 10%;">
@@ -80,9 +98,9 @@
             </form>
         </div>
         <div class="campos">
-            <form id="buscar" action="" method="GET">
+            <form id="buscar" onsubmit="buscarPersona(this); return false;">
                 <input type="text" name="dni" placeholder="DNI: (ej 12345678H)" />
-                <button type="button" onclick="buscarPersona(this.parentNode);">Buscar</button>
+                <button type="submit">Buscar</button>
             </form>
         </div>
     </section>
