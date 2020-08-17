@@ -1,4 +1,5 @@
 let cuerpoTabla = document.querySelector("table.campos > tbody");
+let formularioInsertar = document.getElementById("insertar");
 
 function vaciarTabla() {
     let filasTabla = document.querySelectorAll("table.campos > tbody tr");
@@ -52,8 +53,35 @@ function buscarPersona(formulario) {
     let inputDni = formulario.querySelector("input[name=dni]");
     fetch("/crud/persona/" + inputDni.value, {method: "GET"})
         .then(respuesta => respuesta.json())
-        .then(json => ponerPersonaEnTabla(json));
+        .then(json => ponerPersonaEnTabla(json))
+        .catch(error => console.log(error));
     inputDni.value = "";
+}
+
+function anadirPersona() {
+    let fila = document.querySelector("tr#filaFormulario");
+    let datosFormulario = {
+        "dni": fila.querySelector("input[name=dni]").value,
+        "nombre": fila.querySelector("input[name=nombre]").value,
+        "papellido": fila.querySelector("input[name=papellido]").value,
+        "sapellido": fila.querySelector("input[name=sapellido]").value,
+        "fechanac": fila.querySelector("input[name=fechanac]").value,
+        "genero": fila.querySelector("select[name=genero]").value,
+        "vivo": fila.querySelector("input[name=vivo]").checked,
+        "descripcion": fila.querySelector("textarea[name=descripcion]").value
+    };
+
+    fetch("/crud/anadir", {
+        method: 'POST',
+        body: JSON.stringify(datosFormulario),
+        headers:{
+          'Content-Type': 'application/json'
+        }})
+        .then(respuesta => respuesta.json())
+        .then(function(json) {
+            if (json.anadido != true) { alert("No se ha añadido la persona"); }
+            else { alert("Añadido"); getPersonas(); }
+        });
 }
 
 getPersonas();
