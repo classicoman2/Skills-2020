@@ -12,7 +12,7 @@ $conexion = new mysqli("192.168.1.20", "skills", "1234", "skills");
 if ($conexion->connect_error) { die(); }
 
 $query = "select dni, nombre, apellido_1, apellido_2, fecha_de_nac,
-genero, vivo, descripcion from personas order by apellido_1 asc";
+genero, vivo, descripcion from personas order by nombre desc";
 
 $resultadoQuery = $conexion->query($query);
 
