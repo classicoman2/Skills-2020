@@ -20,23 +20,32 @@
             </div>
             <h1>Actualizar persona</h1>
             <form action="">
-                    <input type="text" placeholder="DNI" name="dni" readonly />
-                    <input type="text" placeholder="Nombre" name="nombre"  />
-                    <br/><br/>
-                    <input type="text" placeholder="Primer apellido" name="papellido"  />
-                    <input type="text" placeholder="Segundo apellido" name="sapellido" />
-                    <br/><br/>
-                    <input type="date" name="fechanac" />
-                    <select name="genero">
-                        <option value="H">Hombre</option>
-                        <option value="F">Mujer</option>
-                    </select>
-                    <label for="vivo">Vivo</label>
-                    <input type="checkbox" id="vivo" name="vivo" checked />
-                    <br/><br/>
-                    <textarea name="descripcion" cols="30" rows="3" placeholder="Texto"></textarea>
-                    <br/><br/>
-                    <input type="submit" value="Actualizar">
+                <label for="dni">DNI</label>
+                <input type="text" placeholder="DNI" name="dni" readonly id="dni" />
+                <br /><br />
+                <label for="nombre">Nombre</label>
+                <input type="text" placeholder="Nombre" name="nombre" id="nombre" />
+                <br /><br />
+                <label for="papellido">Primer apellido</label>
+                <input type="text" placeholder="Primer apellido" name="papellido" id="papellido" />
+                <br /><br />
+                <label for="sapellido">Segundo apellido</label>
+                <input type="text" placeholder="Segundo apellido" name="sapellido" id="sapellido" />
+                <br /><br />
+                <label for="fechanac">Fecha de nacimiento</label>
+                <input type="date" name="fechanac" id="fechanac" />
+                <br /><br />
+                <label for="genero">Género</label>
+                <select name="genero" id="genero">
+                    <option value="H">Hombre</option>
+                    <option value="F">Mujer</option>
+                </select>
+                <label for="vivo">Vivo</label>
+                <input type="checkbox" id="vivo" name="vivo" checked />
+                <br /><br />
+                <textarea name="descripcion" cols="30" rows="3" placeholder="Texto"></textarea>
+                <br /><br />
+                <input type="submit" value="Actualizar">
             </form>
             <div id="eliminarPersona">
                 <img src="img/eliminar.png" width="100%" height="100%" alt="Eliminar persona">
