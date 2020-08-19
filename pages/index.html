@@ -15,21 +15,32 @@
     <section>
         <div id="tapar"></div>
         <div class="campos" id="editarFormulario">
+            <div id="cerrarEditar" onclick="cerrarEditar(this.parentNode);">
+                <img src="img/cerrar.png" width="100%" height="100%" alt="Cerrar">
+            </div>
             <h1>Actualizar persona</h1>
             <form action="">
-                    <input type="text" placeholder="DNI" name="dni" size="10" readonly /><br/>
-                    <input type="text" placeholder="Nombre" name="nombre" size="12" /><br/>
-                    <input type="text" placeholder="Primer apellido" name="papellido" size="12" /><br/>
-                    <input type="text" placeholder="Segundo apellido" name="sapellido" size="12" /><br/>
+                    <input type="text" placeholder="DNI" name="dni" readonly />
+                    <input type="text" placeholder="Nombre" name="nombre"  />
+                    <br/><br/>
+                    <input type="text" placeholder="Primer apellido" name="papellido"  />
+                    <input type="text" placeholder="Segundo apellido" name="sapellido" />
+                    <br/><br/>
                     <input type="date" name="fechanac" />
                     <select name="genero">
                         <option value="H">Hombre</option>
                         <option value="F">Mujer</option>
-                    </select><br/>
-                    <input type="checkbox" name="vivo" checked /><br/>
-                    <textarea name="descripcion" cols="30" rows="3" placeholder="Texto"></textarea><br/>
+                    </select>
+                    <label for="vivo">Vivo</label>
+                    <input type="checkbox" id="vivo" name="vivo" checked />
+                    <br/><br/>
+                    <textarea name="descripcion" cols="30" rows="3" placeholder="Texto"></textarea>
+                    <br/><br/>
                     <input type="submit" value="Actualizar">
             </form>
+            <div id="eliminarPersona">
+                <img src="img/eliminar.png" width="100%" height="100%" alt="Eliminar persona">
+            </div>
         </div>
         <div class="campos">
             <form id="insertar" onsubmit="return false;">
