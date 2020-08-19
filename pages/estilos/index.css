@@ -113,7 +113,7 @@ tr#filaFormulario {
     border-bottom: 1px black solid;
 }
 
-textarea[name=descripcion] {
+form#insertar > table > tbody > tr > td > textarea[name=descripcion] {
     resize: vertical;
 }
 
