@@ -22,7 +22,8 @@ function llenarTabla(json) {
                         + "</td><td>" + persona.genero
                         + "</td><td>" + persona.vivo
                         + "</td><td>" + persona.descripcion
-                        + "</td><td><button><img src='/img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
+                        + "</td><td><button onclick='abrirEditar(\"" + persona.dni
+                        + "\");'><img src='/img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
         cuerpoTabla.innerHTML = fila.innerHTML + cuerpoTabla.innerHTML;
     }
 }
@@ -45,7 +46,8 @@ function ponerPersonaEnTabla(persona) {
                     + "</td><td>" + persona.genero
                     + "</td><td>" + persona.vivo
                     + "</td><td>" + persona.descripcion
-                    + "</td><td><button><img src='/img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
+                    + "</td><td><button onclick='abrirEditar(\"" + persona.dni
+                    + "\");'><img src='/img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
     cuerpoTabla.innerHTML = fila.innerHTML + cuerpoTabla.innerHTML;
 }
 
@@ -67,7 +69,7 @@ function anadirPersona() {
         "sapellido": fila.querySelector("input[name=sapellido]").value,
         "fechanac": fila.querySelector("input[name=fechanac]").value,
         "genero": fila.querySelector("select[name=genero]").value,
-        "vivo": fila.querySelector("input[name=vivo]").checked,
+        "vivo": fila.querySelector("input[name=vivo]").value,
         "descripcion": fila.querySelector("textarea[name=descripcion]").value
     };
 
@@ -81,6 +83,35 @@ function anadirPersona() {
         .then(function(json) {
             if (json.anadido != true) { alert("No se ha añadido la persona"); }
             else { alert("Añadido"); getPersonas(); }
+        });
+}
+
+function abrirEditar(dni) {
+    let divFormulario = document.querySelector("div#editarFormulario");
+    divFormulario.style.display = "block";
+    document.querySelector("div#tapar").style.display = "block";
+    divFormulario.querySelector("div#eliminarPersona").onclick = () => eliminarPersona(dni);
+}
+
+function cerrarEditar(divFormulario) {
+    divFormulario.style.display = "none";
+    document.querySelector("div#tapar").style.display = "none";
+}
+
+function eliminarPersona(dni) {
+    if (!confirm("¿Estas seguro que quieres eliminar esta persona?")) {return}
+
+    let divFormulario = document.querySelector("div#editarFormulario");
+
+    fetch("/crud/delete/" + dni, {method: "DELETE"})
+        .then(respuesta => respuesta.json())
+        .then(json => {
+            if (json.eliminado) {
+                alert("Se ha eliminado correctamente");
+                cerrarEditar(divFormulario);
+            } else {
+                alert("No se ha eliminado la persona con DNI: " + dni);
+            }
         });
 }
 
