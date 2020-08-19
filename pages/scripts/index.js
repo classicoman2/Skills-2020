@@ -91,6 +91,10 @@ function anadirPersona() {
         });
 }
 
+function actualizarPersona(formularioEditar) {
+    console.log(formularioEditar);
+}
+
 function ponerPersonaEnFormularioEditar(json) {
     let formularioEditar = document.querySelector("div#editarFormulario > form");
 
