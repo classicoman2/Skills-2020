@@ -8,4 +8,5 @@ RewriteRule ^inicio$ index.html
 RewriteRule ^crud/personas$ crud/personas.php
 RewriteRule ^crud/persona/(\w*)$ crud/persona.php?dni=$1
 RewriteRule ^crud/anadir$ crud/anadir.php
+RewriteRule ^crud/delete/(\w*)$ crud/delete.php?dni=$1
 RewriteRule ^pagina-no-encontrada$ 404.html
