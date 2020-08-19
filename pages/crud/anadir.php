@@ -4,9 +4,6 @@ $json = file_get_contents('php://input');
 
 $datos = json_decode($json);
 
-if ($datos->vivo == "on") { $datos->vivo = 1; }
-else { $datos->vivo = 0; }
-
 $query = "insert into personas (dni, nombre, apellido_1, apellido_2, fecha_de_nac, genero, vivo, descripcion)
 values ('$datos->dni', '$datos->nombre', '$datos->papellido', '$datos->sapellido', '$datos->fechanac', '$datos->genero',
 $datos->vivo, '$datos->descripcion')";
