@@ -62,6 +62,11 @@ function buscarPersona(formulario) {
 
 function anadirPersona() {
     let fila = document.querySelector("tr#filaFormulario");
+
+    let vivo;
+    if (fila.querySelector("input[name=vivo]").checked == true) { vivo = 1; }
+    else { vivo = 0; }
+
     let datosFormulario = {
         "dni": fila.querySelector("input[name=dni]").value,
         "nombre": fila.querySelector("input[name=nombre]").value,
@@ -69,7 +74,7 @@ function anadirPersona() {
         "sapellido": fila.querySelector("input[name=sapellido]").value,
         "fechanac": fila.querySelector("input[name=fechanac]").value,
         "genero": fila.querySelector("select[name=genero]").value,
-        "vivo": fila.querySelector("input[name=vivo]").value,
+        "vivo": vivo,
         "descripcion": fila.querySelector("textarea[name=descripcion]").value
     };
 
@@ -86,11 +91,38 @@ function anadirPersona() {
         });
 }
 
+function ponerPersonaEnFormularioEditar(json) {
+    let formularioEditar = document.querySelector("div#editarFormulario > form");
+
+    let elementosHijos = formularioEditar.querySelectorAll("input");
+
+    elementosHijos[0].value = json.dni;
+    elementosHijos[1].value = json.nombre;
+    elementosHijos[2].value = json.apellido_1;
+    elementosHijos[3].value = json.apellido_2;
+    elementosHijos[4].value = json.fecha_de_nac;
+    if (json.vivo == "No") { elementosHijos[5].checked = false; }
+    else { elementosHijos[5].checked = true; }
+
+    let generoSelect = formularioEditar.querySelector("#genero");
+    if (json.genero == "Hombre") { generoSelect.value = "H"; }
+    else { generoSelect.value = "F"; }
+
+    let descripcionTextarea = formularioEditar.querySelector("textarea[name=descripcion]");
+    descripcionTextarea.textContent = json.descripcion;
+    
+    
+}
+
 function abrirEditar(dni) {
     let divFormulario = document.querySelector("div#editarFormulario");
     divFormulario.style.display = "block";
     document.querySelector("div#tapar").style.display = "block";
     divFormulario.querySelector("div#eliminarPersona").onclick = () => eliminarPersona(dni);
+
+    fetch("/crud/persona/" + dni, {method: "GET"})
+        .then(respuesta => respuesta.json())
+        .then(json => ponerPersonaEnFormularioEditar(json));
 }
 
 function cerrarEditar(divFormulario) {
