@@ -109,6 +109,7 @@ function eliminarPersona(dni) {
             if (json.eliminado) {
                 alert("Se ha eliminado correctamente");
                 cerrarEditar(divFormulario);
+                getPersonas();
             } else {
                 alert("No se ha eliminado la persona con DNI: " + dni);
             }
