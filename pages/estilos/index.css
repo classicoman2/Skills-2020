@@ -48,6 +48,27 @@ div#cerrarEditar:hover {
     cursor: pointer;
 }
 
+div#editarFormulario > form input:focus, div#editarFormulario > form select:focus, div#editarFormulario > form textarea:focus {
+    background-color: rgb(232, 232, 255);
+    outline-color: chocolate;
+}
+
+div#editarFormulario > form > input[type=submit] {
+    padding: 5px;
+    border: 2px rgb(0, 210, 0) solid;
+    background-color: rgb(0, 210, 0);
+    font-size: large;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+    font-weight: bold;
+}
+
+div#editarFormulario > form > input[type=submit]:hover {
+    background-color: rgba(0, 210, 0, 0.01);
+    transition: 1s;
+    cursor: pointer;
+}
+
 div#eliminarPersona {
     position: absolute;
     bottom: 5px;
