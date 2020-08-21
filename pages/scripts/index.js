@@ -91,8 +91,32 @@ function anadirPersona() {
         });
 }
 
-function actualizarPersona(formularioEditar) {
-    console.log(formularioEditar);
+function actualizarPersona(formularioEditar, dni) {
+
+    let vivo = formularioEditar.querySelector("input#vivo").checked ? 1 : 0;
+
+    let datos = {
+        "dni": dni,
+        "nombre": formularioEditar.querySelector("input#nombre").value,
+        "papellido": formularioEditar.querySelector("input#papellido").value,
+        "sapellido": formularioEditar.querySelector("input#sapellido").value,
+        "fechanac": formularioEditar.querySelector("input#fechanac").value,
+        "genero": formularioEditar.querySelector("select#genero").value,
+        "vivo": vivo,
+        "descripcion": formularioEditar.querySelector("textarea[name=descripcion]").value
+    };
+
+    fetch("/crud/update", {
+        method: 'PUT',
+        body: JSON.stringify(datos),
+        headers:{
+          'Content-Type': 'application/json'
+        }})
+        .then(respuesta => respuesta.json())
+        .then(function(json) {
+            if (json.actualizado != true) { alert("No se ha actualizado la persona"); }
+            else { alert("Actualizado"); getPersonas(); cerrarEditar(formularioEditar.parentNode); }
+        });
 }
 
 function ponerPersonaEnFormularioEditar(json) {
@@ -115,7 +139,7 @@ function ponerPersonaEnFormularioEditar(json) {
     let descripcionTextarea = formularioEditar.querySelector("textarea[name=descripcion]");
     descripcionTextarea.textContent = json.descripcion;
     
-    
+    formularioEditar.setAttribute("onsubmit", `actualizarPersona(this, '${json.dni}'); return false;`);
 }
 
 function abrirEditar(dni) {
