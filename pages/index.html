@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="campos">
-            <form id="insertar" onsubmit="return false;">
+            <form id="insertar" onsubmit="anadirPersona(); return false;">
                 <table class="campos">
                     <colgroup>
                         <col span="1" style="width: 10%;">
@@ -75,26 +75,26 @@
                             <th>Género</th>
                             <th>Vivo</th>
                             <th>Descripción</th>
-                            <th><button onclick="getPersonas();"><img src="/img/recargar.png" alt="recargar"
+                            <th><button type="button" onclick="getPersonas();"><img src="/img/recargar.png" alt="recargar"
                                         height="100%" width="100%" /></button></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr id="filaFormulario">
                             <td>
-                                <input type="text" placeholder="DNI" name="dni" size="10" />
+                                <input type="text" placeholder="DNI" name="dni" size="10" pattern="^\d{8}[A-Z]$" required />
                             </td>
                             <td>
-                                <input type="text" placeholder="Nombre" name="nombre" size="12" />
+                                <input type="text" placeholder="Nombre" name="nombre" size="12" pattern="^[A-ZÁ-Ú][a-zá-ú]+(\s[A-ZÁ-Ú][a-zá-ú]+)?$" required />
                             </td>
                             <td>
-                                <input type="text" placeholder="Primer apellido" name="papellido" size="12" />
+                                <input type="text" placeholder="Primer apellido" name="papellido" size="12" pattern="^[A-ZÁ-Ú][a-zá-ú]+(\s[A-ZÁ-Ú][a-zá-ú]+)?$" required />
                             </td>
                             <td>
-                                <input type="text" placeholder="Segundo apellido" name="sapellido" size="12" />
+                                <input type="text" placeholder="Segundo apellido" name="sapellido" size="12" pattern="^[A-ZÁ-Ú][a-zá-ú]+(\s[A-ZÁ-Ú][a-zá-ú]+)?$" />
                             </td>
                             <td>
-                                <input type="date" name="fechanac" />
+                                <input type="date" name="fechanac" max="" />
                             </td>
                             <td>
                                 <select name="genero">
@@ -109,8 +109,7 @@
                                 <textarea name="descripcion" cols="30" rows="3" placeholder="Texto"></textarea>
                             </td>
                             <td>
-                                <button type="button"><img src="/img/anadir.png" alt="Añadir" width="100%" height="100%"
-                                        onclick="anadirPersona();"></button>
+                                <button type="submit"><img src="/img/anadir.png" alt="Añadir" width="100%" height="100%"></button>
                             </td>
                         </tr>
                     </tbody>
@@ -119,7 +118,7 @@
         </div>
         <div class="campos">
             <form id="buscar" onsubmit="buscarPersona(this); return false;">
-                <input type="text" name="dni" placeholder="DNI: (ej 12345678H)" />
+                <input type="text" name="dni" placeholder="DNI: (ej 12345678H)" pattern="^\d{8}[A-Z]$" required />
                 <button type="submit">Buscar</button>
             </form>
         </div>

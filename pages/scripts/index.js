@@ -1,5 +1,6 @@
 let cuerpoTabla = document.querySelector("table.campos > tbody");
 let formularioInsertar = document.getElementById("insertar");
+let dates = document.querySelectorAll("input[type=date]");
 
 function vaciarTabla() {
     let filasTabla = document.querySelectorAll("table.campos > tbody tr");
@@ -22,7 +23,7 @@ function llenarTabla(json) {
                         + "</td><td>" + persona.genero
                         + "</td><td>" + persona.vivo
                         + "</td><td>" + persona.descripcion
-                        + "</td><td><button onclick='abrirEditar(\"" + persona.dni
+                        + "</td><td><button type='button' onclick='abrirEditar(\"" + persona.dni
                         + "\");'><img src='/img/editar.png' alt='editar' height='100%' width='100%'></button></td>";
         cuerpoTabla.innerHTML = fila.innerHTML + cuerpoTabla.innerHTML;
     }
@@ -159,7 +160,7 @@ function cerrarEditar(divFormulario) {
 }
 
 function eliminarPersona(dni) {
-    if (!confirm("¿Estas seguro que quieres eliminar esta persona?")) {return}
+    if (!confirm("¿Estas seguro que quieres eliminar esta persona?")) { return; }
 
     let divFormulario = document.querySelector("div#editarFormulario");
 
@@ -176,4 +177,20 @@ function eliminarPersona(dni) {
         });
 }
 
+function getHoy() {
+    let fecha = new Date();
+    let mes = fecha.getMonth();
+    let dia = fecha.getDate();
+    let hoy = fecha.getFullYear() + "-" + (mes < 10 ? "0" + mes : mes) + "-" + (dia < 10 ? "0" + dia : dia);
+    return hoy;
+}
+
+function iniciar() {
+    let hoy = getHoy();
+    for (date of dates) {
+        date.max = hoy;
+    }
+}
+
+iniciar();
 getPersonas();
