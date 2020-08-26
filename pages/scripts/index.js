@@ -177,6 +177,26 @@ function eliminarPersona(dni) {
         });
 }
 
+function abrirBasura(divEliminar) {
+    let imagenEliminar = divEliminar.querySelector("img");
+    imagenEliminar.setAttribute("src", "/img/eliminar-abierto.png");
+}
+
+function cerrarBasura(divEliminar) {
+    let imagenEliminar = divEliminar.querySelector("img");
+    imagenEliminar.setAttribute("src", "/img/eliminar.png");
+}
+
+function ponerRojoCerrar(divEliminar) {
+    let imagenEliminar = divEliminar.querySelector("img");
+    imagenEliminar.setAttribute("src", "/img/cerrar-rojo.png");
+}
+
+function quitarRojoCerrar(divEliminar) {
+    let imagenEliminar = divEliminar.querySelector("img");
+    imagenEliminar.setAttribute("src", "/img/cerrar.png");
+}
+
 function getHoy() {
     let fecha = new Date();
     let mes = fecha.getMonth();
