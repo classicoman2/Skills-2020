@@ -24,13 +24,13 @@
                 <input type="text" placeholder="DNI" name="dni" readonly id="dni" />
                 <br /><br />
                 <label for="nombre">Nombre</label>
-                <input type="text" placeholder="Nombre" name="nombre" id="nombre" />
+                <input type="text" placeholder="Nombre" name="nombre" id="nombre" pattern="^[A-ZÁ-Ú][a-zá-ú]+(\s[A-ZÁ-Ú][a-zá-ú]+)?$" required />
                 <br /><br />
                 <label for="papellido">Primer apellido</label>
-                <input type="text" placeholder="Primer apellido" name="papellido" id="papellido" />
+                <input type="text" placeholder="Primer apellido" name="papellido" id="papellido" pattern="^[A-ZÁ-Ú][a-zá-ú]+(\s[A-ZÁ-Ú][a-zá-ú]+)?$" required />
                 <br /><br />
                 <label for="sapellido">Segundo apellido</label>
-                <input type="text" placeholder="Segundo apellido" name="sapellido" id="sapellido" />
+                <input type="text" placeholder="Segundo apellido" name="sapellido" id="sapellido" pattern="^[A-ZÁ-Ú][a-zá-ú]+(\s[A-ZÁ-Ú][a-zá-ú]+)?$" />
                 <br /><br />
                 <label for="fechanac">Fecha de nacimiento</label>
                 <input type="date" name="fechanac" id="fechanac" />
