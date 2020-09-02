@@ -1,6 +1,12 @@
 <?php
 
+require "../ComprobadorDatos.php";
+
 header("Content-Type: application/json");
+
+$comprobador = new ComprobadorDatos;
+
+if (!$comprobador->comprobarDni($_REQUEST["dni"])) { die("{\"eliminado\": false}"); }
 
 if ($_SERVER["REQUEST_METHOD"] != "DELETE") { die("{\"eliminado\": false}"); }
 
