@@ -199,7 +199,7 @@ function quitarRojoCerrar(divEliminar) {
 
 function getHoy() {
     let fecha = new Date();
-    let mes = fecha.getMonth();
+    let mes = fecha.getMonth() + 1;
     let dia = fecha.getDate();
     let hoy = fecha.getFullYear() + "-" + (mes < 10 ? "0" + mes : mes) + "-" + (dia < 10 ? "0" + dia : dia);
     return hoy;
