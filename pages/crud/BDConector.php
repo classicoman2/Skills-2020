@@ -31,7 +31,12 @@ class BDConector {
 
         $resultado = $this->conexion->query($query);
 
-        if ($resultado->num_rows == 0) { return false; }
+        if ($resultado) {
+            if (is_object($resultado)) {
+                if ($resultado->num_rows == 0) { return false; }
+            }
+        }
+        else { return false; }
 
         return $resultado;
     }
