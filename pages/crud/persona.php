@@ -1,5 +1,7 @@
 <?php
 
+require "BDConector.php";
+
 header("Content-Type: application/json");
 
 if ($_SERVER["REQUEST_METHOD"] != "GET") {
@@ -10,18 +12,18 @@ if (!isset($_GET["dni"]) || $_GET["dni"] == "") {
     die();
 }
 
-$conexion = new mysqli("192.168.1.20", "skills", "1234", "skills");
+$db = new BDConector();
 
-if ($conexion->connect_error) { die(); }
+if (!$db->abrirConexion()) { die(); }
 
 $query = "select dni, nombre, apellido_1, apellido_2, fecha_de_nac,
 genero, vivo, descripcion from personas where dni = '" . $_GET["dni"] . "';";
 
-$resultadoQuery = $conexion->query($query);
+$resultadoQuery = $db->ejecutarQuery($query);
 
-$conexion->close();
+$db->cerrarConexion();
 
-if ($resultadoQuery->num_rows == 0) { die("{\"encontrado\": 0}"); }
+if (!$resultadoQuery) { die("{\"encontrado\": 0}"); }
 
 $persona = $resultadoQuery->fetch_assoc();
 
