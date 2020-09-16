@@ -12,7 +12,7 @@ docker build -t xampp .
 
 ## Iniciar el contenedor
 
-Para iniciar el contenedor xampp la primera vez debemos ejecutar el script [docker-xampp.sh](docker-xampp.sh), para ello seguimos estos pasos:
+Para iniciar el contenedor xampp la primera vez debemos ejecutar el script [../scripts/docker-xampp.sh](docker-xampp.sh), para ello seguimos estos pasos:
 
 ```bash
 chmod +x docker-xampp.sh
@@ -33,4 +33,4 @@ En la carpeta pages es donde deben ir todos los recursos de la web (html, imagen
 
 La carpeta etc contiene los ficheros de configuración de xampp.
 
-Si borramos el contenedor en vez de pararlo tendremos que volver a ejecutar el script [docker-xampp.sh](docker-xampp.sh).
+Si borramos el contenedor en vez de pararlo tendremos que volver a ejecutar el script [../scripts/docker-xampp.sh](docker-xampp.sh).
