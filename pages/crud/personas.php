@@ -1,5 +1,7 @@
 <?php
 
+require "BDConector.php";
+
 if ($_SERVER["REQUEST_METHOD"] != "GET") {
     die();
 }
@@ -7,20 +9,20 @@ if ($_SERVER["REQUEST_METHOD"] != "GET") {
 header("Content-Type: application/json");
 $json = new stdClass();
 
-$conexion = new mysqli("192.168.1.20", "skills", "1234", "skills");
+$db = new BDConector();
 
-if ($conexion->connect_error) { die(); }
+if (!$db->abrirConexion()) { die(); }
 
 $query = "select dni, nombre, apellido_1, apellido_2, fecha_de_nac,
 genero, vivo, descripcion from personas order by nombre desc";
 
-$resultadoQuery = $conexion->query($query);
+$resultadoQuery = $db->ejecutarQuery($query);
 
-$conexion->close();
+$db->cerrarConexion();
 
 $json->personas = array();
 
-if ($resultadoQuery->num_rows > 0) {
+if ($resultadoQuery) {
     while ($fila = $resultadoQuery->fetch_assoc()) {
         $persona = new stdClass();
         $persona->dni = $fila["dni"];

@@ -1,6 +1,7 @@
 <?php
 
 require "../ComprobadorDatos.php";
+require "BDConector.php";
 
 header("Content-Type: application/json");
 
@@ -10,14 +11,14 @@ if (!$comprobador->comprobarDni($_REQUEST["dni"])) { die("{\"eliminado\": false}
 
 if ($_SERVER["REQUEST_METHOD"] != "DELETE") { die("{\"eliminado\": false}"); }
 
-$conexion = new mysqli("192.168.1.20", "skills", "1234", "skills");
-if ($conexion->connect_error) { die("{\"eliminado\": false}"); }
-
 $query = "delete from personas where dni = '" . $_REQUEST["dni"] . "'";
 
-if ($conexion->query($query) === TRUE) { echo "{\"eliminado\": true}"; }
-else { die("{\"eliminado\": \"$conexion->error\"}"); }
+$db = new BDConector();
+if (!$db->abrirConexion()) { die("{\"eliminado\": false}"); }
 
-$conexion->close();
+if ($db->ejecutarQuery($query)) { echo "{\"eliminado\": true}"; }
+else { die("{\"eliminado\": false}"); }
+
+$db->cerrarConexion();
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 
 require "../ComprobadorDatos.php";
+require "BDConector.php";
 
 header("Content-Type: application/json");
 
@@ -25,12 +26,12 @@ $query = "update personas set nombre = '$datos->nombre', apellido_1 = '$datos->p
 fecha_de_nac = '$datos->fechanac', genero = '$datos->genero', vivo = $datos->vivo, descripcion = '$datos->descripcion'
 where dni = '$datos->dni'";
 
-$conexion = new mysqli("192.168.1.20", "skills", "1234", "skills");
-if ($conexion->connect_error) { die("{\"actualizado\": false}"); }
+$db = new BDConector();
+if (!$db->abrirConexion()) { die("{\"actualizado\": false}"); }
 
-if ($conexion->query($query)) {echo "{\"actualizado\": true}";}
+if ($db->ejecutarQuery($query)) { echo "{\"actualizado\": true}"; }
 else { die("{\"actualizado\": false}"); }
 
-$conexion->close();
+$db->cerrarConexion();
 
 ?>

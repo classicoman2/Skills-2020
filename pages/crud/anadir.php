@@ -1,6 +1,7 @@
 <?php
 
 require "../ComprobadorDatos.php";
+require "BDConector.php";
 
 $json = file_get_contents('php://input');
 
@@ -22,11 +23,12 @@ $query = "insert into personas (dni, nombre, apellido_1, apellido_2, fecha_de_na
 values ('$datos->dni', '$datos->nombre', '$datos->papellido', '$datos->sapellido', '$datos->fechanac', '$datos->genero',
 $datos->vivo, '$datos->descripcion')";
 
-$conexion = new mysqli("192.168.1.20", "skills", "1234", "skills");
-if ($conexion->connect_error) { die("{\"anadido\": false}"); }
+$db = new BDConector();
+if (!$db->abrirConexion()) { die("{\"anadido\": false}"); }
 
-if ($conexion->query($query) === TRUE) { echo "{\"anadido\": true}"; }
+if ($db->ejecutarQuery($query)) { echo "{\"anadido\": true}"; }
 else { echo "{\"anadido\": false}"; }
-$conexion->close();
+
+$db->cerrarConexion();
 
 ?>
